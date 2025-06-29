@@ -3,6 +3,9 @@
 The OSI (Open Systems Interconnection) Model is a standardized framework used to understand and implement network communication. It consists of **seven layers**, each handling specific responsibilities in the communication process.
 
 ---
+![7 Layers of OSI Model](7-layer-of-osi-model.png)
+
+---
 
 ## 🔹 Layer-by-Layer Explanation with Real-World Protocols
 
