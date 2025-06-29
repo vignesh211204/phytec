@@ -48,7 +48,7 @@ Multithreading is the ability of a program to **run multiple threads** in **para
 ---
 
 ## Thread Synchronization
-Thread synchronization is the technique used to ensure that **multiple threads** can **safely access** and **modify** shared resources (like variables, memory, or devices) without interfering with each other.s)
+Thread synchronization is the technique used to ensure that **multiple threads** can **safely access** and **modify** shared resources (like variables, memory, or devices) without interfering with each others).
 
 **Thread Synchronization Mechanisms**  
 - Mutex
