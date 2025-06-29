@@ -66,7 +66,7 @@ Provides **reliable or fast delivery** of data across the network. It supports *
 
 | Feature                     | **TCP (Transmission Control Protocol)**       | **UDP (User Datagram Protocol)**           |
 |----------------------------|------------------------------------------------|--------------------------------------------|
-| **Connection Type**        | Connection-oriented (requires handshake)       | Connectionless (no handshake)              |
+| **Connection Type**        | Connection-oriented                            | Connectionless               |
 | **Reliability**            | Reliable – ensures packet delivery             |  Unreliable – no guarantee                |
 | **Ordering of Data**       | Maintains order of packets                     |  May arrive out of order                  |
 | **Error Checking**         | Yes – with retransmissions                     |  Yes – but no retransmission              |
