@@ -28,7 +28,7 @@ Multiple threads in a single process run **concurrently** and **share memory**, 
 
 ---
 
-### What is Multithreading?
+## What is Multithreading?
 Multithreading is the ability of a program to **run multiple threads** in **parallel or concurrently**.
 
 **Types**  
@@ -36,18 +36,18 @@ Multithreading is the ability of a program to **run multiple threads** in **para
 - **Cooperative** – the thread itself must voluntarily give up control (or yield) so another thread can run. 
 ---
 
-### ⚙️ Thread Lifecycle in C
+## ⚙️ Thread Lifecycle in C
 
-## ✅ 1. Thread Creation
+### ✅ 1. Thread Creation
    `pthread_create()` — create a new thread
-## ✅2. Thread Termination
+### ✅2. Thread Termination
    Return from function or use `pthread_exit()`
-## ✅3. Thread Join
+### ✅3. Thread Join
    `pthread_join()` — wait for thread to complete
    
 ---
 
-### Thread Synchronization
+## Thread Synchronization
 Thread synchronization is the technique used to ensure that **multiple threads** can **safely access** and **modify** shared resources (like variables, memory, or devices) without interfering with each other.s)
 
 **Thread Synchronization Mechanisms**  
