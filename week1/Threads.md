@@ -83,5 +83,56 @@ Thread synchronization is the technique used to ensure that **multiple threads**
 | **Mutex/Semaphore**| Tools to manage access to critical sections            |
 | **RTOS Threads**   | Called tasks, managed by RTOS scheduler                |
 
+---
+
+## 🧠 What is a Scheduler?
+In a system where multiple tasks or threads are active, the scheduler is like a controller — it ensures that each thread/task gets a fair chance to execute, based on rules like priority, time slices, or task state.
 
 ---
+## 🛠️ Role of a Scheduler
+- Manages Task Execution
+- Decides Which Task Runs Next
+- Handles Task Priority
+- Switches Context Between Tasks
+- Optimizes CPU Utilization
+---
+## Task States
+
+| **Task State**     | **Description**                                        |
+|--------------------|--------------------------------------------------------|
+| **Ready**          | Task is ready to run,waiting in queue                  |
+| **Running**        | Task is currently using the CPU                        |
+| **Blocked**        | Waiting for an event (I/O, timer, etc.)                |
+| **Suspended**      | Manually paused, not eligible to run                   |
+
+---
+### 🧩 Types of Scheduling Algorithms
+## ⏳ 1. Round Robin Scheduling
+
+Round Robin is one of the simplest and most common scheduling algorithms. In this method, each task is assigned a fixed time slot (called a time quantum) during which it can use the CPU. After that time expires, the CPU is given to the next task in the queue, and this cycle continues endlessly.
+## 🧠 Key Features:
+- All tasks are treated equally, regardless of their urgency.
+- It is non-preemptive within its time slice, but preemptive across slices
+- Easy to implement but may not be suitable for real-time systems.
+
+---
+## 🛑 2. Preemptive Priority Scheduling
+
+In preemptive priority scheduling, each task is assigned a priority number. The scheduler always picks the task with the highest priority from the ready queue to run. If a lower-priority task is running and a higher-priority task becomes ready, the scheduler will immediately pause (preempt) the current task and switch to the higher-priority one.
+## 🧠 Key Features:
+- Tasks with higher priorities get more CPU time.
+- Great for real-time and time-critical applications.
+- Ensures responsiveness to critical events like interrupts, sensor alerts, or alarms.
+
+---
+
+
+
+
+
+
+
+
+
+
+
