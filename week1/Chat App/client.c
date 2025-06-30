@@ -8,15 +8,15 @@
 #define BUFFER_SIZE 1024
 
 int sockfd;
-struct sockaddr_in cliaddr;
-socklen_t len = sizeof(cliaddr);
+struct sockaddr_in servaddr;
+socklen_t len;
 
 void* receive_messages(void* arg) {
     char buffer[BUFFER_SIZE];
     while (1) {
-        int n = recvfrom(sockfd, buffer, BUFFER_SIZE, 0, (struct sockaddr *)&cliaddr, &len);
+        int n = recvfrom(sockfd, buffer, BUFFER_SIZE, 0, NULL, NULL);
         buffer[n] = '\0';
-        printf("\nClient: %s", buffer);
+        printf("\nServer: %s", buffer);
         fflush(stdout);
     }
     return NULL;
@@ -27,19 +27,19 @@ void* send_messages(void* arg) {
     while (1) {
         printf("You: ");
         fgets(buffer, BUFFER_SIZE, stdin);
-        sendto(sockfd, buffer, strlen(buffer), 0, (struct sockaddr *)&cliaddr, len);
+        sendto(sockfd, buffer, strlen(buffer), 0, (const struct sockaddr *)&servaddr, sizeof(servaddr));
     }
     return NULL;
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <port>\n", argv[0]);
+    if (argc != 3) {
+        fprintf(stderr, "Usage: %s <server_ip> <port>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    struct sockaddr_in servaddr;
-    int port = atoi(argv[1]);
+    int port = atoi(argv[2]);
+    const char* server_ip = argv[1];
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockfd < 0) {
@@ -48,18 +48,12 @@ int main(int argc, char *argv[]) {
     }
 
     memset(&servaddr, 0, sizeof(servaddr));
-    memset(&cliaddr, 0, sizeof(cliaddr));
-
     servaddr.sin_family = AF_INET;
-    servaddr.sin_addr.s_addr = INADDR_ANY;
     servaddr.sin_port = htons(port);
+    servaddr.sin_addr.s_addr = inet_addr(server_ip);
+    len = sizeof(servaddr);
 
-    if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
-        perror("Bind failed");
-        exit(EXIT_FAILURE);
-    }
-
-    printf("Server is running on port %d...\n", port);
+    printf("Connected to server at %s:%d\n", server_ip, port);
 
     pthread_t recv_thread, send_thread;
     pthread_create(&recv_thread, NULL, receive_messages, NULL);
