@@ -88,12 +88,12 @@ void handleEvent(Event e) {
 int main() {
     printf("Initial State: IDLE\n");
 
-    handleEvent(SEND_REQUEST);      // IDLE -> SENDING
-    handleEvent(MESSAGE_SENT);      // SENDING -> WAIT_ACK
-    handleEvent(ACK_RECEIVED);      // WAIT_ACK -> IDLE
+    handleEvent(SEND_REQUEST);     
+    handleEvent(MESSAGE_SENT);      
+    handleEvent(ACK_RECEIVED);     
 
-    handleEvent(MESSAGE_RECEIVED);  // IDLE -> RECEIVING
-    handleEvent(ACK_SENT);          // RECEIVING -> IDLE
+    handleEvent(MESSAGE_RECEIVED);  
+    handleEvent(ACK_SENT);         
 
     return 0;
 }
