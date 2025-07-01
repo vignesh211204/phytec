@@ -1,4 +1,4 @@
-## 🧠 What is a State Machine?
+## 🧠State Machine
 
 A **state machine** is a programming pattern used to model system behavior as a sequence of defined **states** and **transitions**. It’s especially useful in embedded systems, communication protocols, and real-time applications.
 A **state machine** consists of:
@@ -36,10 +36,24 @@ A **state machine** consists of:
 ---
 
 ```c
+#include <stdio.h>
+
 typedef enum { IDLE, SENDING, WAIT_ACK, RECEIVING } State;
 typedef enum { SEND_REQUEST, MESSAGE_SENT, ACK_RECEIVED, TIMEOUT, MESSAGE_RECEIVED, ACK_SENT } Event;
 
 State currentState = IDLE;
+
+void sendMessage() {
+    printf("Action: Sending message...\n");
+}
+
+void processMessage() {
+    printf("Action: Processing received message...\n");
+}
+
+void startAckTimer() {
+    printf("Action: Starting ACK timer...\n");
+}
 
 void handleEvent(Event e) {
     switch (currentState) {
@@ -70,6 +84,20 @@ void handleEvent(Event e) {
             break;
     }
 }
+
+int main() {
+    printf("Initial State: IDLE\n");
+
+    handleEvent(SEND_REQUEST);      // IDLE -> SENDING
+    handleEvent(MESSAGE_SENT);      // SENDING -> WAIT_ACK
+    handleEvent(ACK_RECEIVED);      // WAIT_ACK -> IDLE
+
+    handleEvent(MESSAGE_RECEIVED);  // IDLE -> RECEIVING
+    handleEvent(ACK_SENT);          // RECEIVING -> IDLE
+
+    return 0;
+}
+
 ```
 
 ---
