@@ -1,12 +1,12 @@
-# Week 1: Core C Concepts + OSI Model + UDP Chat
+# 🟩Week 1: Core C Concepts + OSI Model + UDP Chat
 
-## Focus Areas
+## 🎯 Focus Areas
 
 - OSI Model Understanding (with mapping to UDP)
 - All foundational C brush-up topics
 - Build a C-based UDP Chat App
 
-## Topics
+## 📘Topics
 
 - OSI Layers: mapping to real protocols
 - State Machine
@@ -23,7 +23,7 @@
   - Callback functions
 - Bit operations & byte packing
 
-## Deliverables
+## 🛠️ Deliverables
 
 ### Document
 
