@@ -45,7 +45,7 @@ Two pointers track the state:
 
 ---
 
-## 💻 Example Output
+## 💻 Sample Output
 
 ```bash
 Queue: 10 ← 20 ← 30 ← NULL
