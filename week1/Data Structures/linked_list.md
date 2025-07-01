@@ -1,4 +1,4 @@
-## 🧠 What is a Linked List?
+## Linked List
 
 A **Linked List** is a linear data structure where each element (called a **node**) contains:
 
