@@ -69,5 +69,5 @@ int main(int argc, char *argv[]) {
     pthread_join(send_thread, NULL);
 
     close(sockfd);
-    return 0;
+    return 0;
 }
